@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        -->
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script> -->
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <title>Shrimp count</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button id="back" class="btn btn-outline-info hidden" type="button">< Back</button>
+            <a class="navbar-brand mx-auto" href="javascript:void(0)">
+                <img class="logo" src="./img/logo.png">
+                <span class="navbar-brand mb-0 h1 title">Shrimp count</span>
+            </a>
+        </nav>
+        <div class="app text-center">
+            <div id="modifyArea" class="modify-area">
+                <div id="cmdgroup" class="row">
+                    <div class="col-md-4 col-12 mb-2">
+                        <button
+                            type="button"
+                            id="startPi01Button"
+                            class="btn btn-outline-light btn-lg btn-block">
+                            Start Pi 01
+                        </button>
+                    </div>
+                    <div class="col-md-4 col-12 mb-2">
+                        <button
+                            type="button"
+                            id="startPi02Button"
+                            class="btn btn-outline-light btn-lg btn-block">
+                            Start Pi 02
+                        </button>                    
+                    </div>
+                    <div class="col-md-4 col-12 mb-2">
+                        <button
+                            type="button"
+                            id="disconnectButton"
+                            class="btn btn-outline-light btn-lg btn-block">
+                            Disconnect
+                        </button>
+                    </div>
+                </div>
+                <div id="eventMessageDIV" class="blink">
+                    <p class="event listening">Connecting to Device</p>
+                    <p class="event received">Device is Ready</p>
+                </div>
+                <div class="input-group mb-3">
+                    <input
+                        type="number"
+                        class="form-control"
+                        value="1540606601"
+                        id="timestamp"
+                        placeholder="Timestamp">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" type="button" id="input_timestamp">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div id="resultArea" class="result-area hidden text-left">
+                <div id="loader" class="loader hidden"></div>
+                <div class="alert alert-light text-monospace font-weight-bold result" role="alert">
+                    Median is <span id="median" class="badge badge-success ml-2"></span>
+                </div>
+                <div id="result" class="row result"></div>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/shrimp.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+    </body>
+</html>
